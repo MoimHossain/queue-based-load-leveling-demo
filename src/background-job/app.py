@@ -57,12 +57,12 @@ def process_queue_messages():
                             blob_name = 'unknown'
                         
                         # Print message to console
-                        print("\n=============================================")
-                        print("NEW MESSAGE RECEIVED FROM AZURE QUEUE:")
-                        print(f"ID: {message.id}")
-                        print(f"Blob name: {blob_name}")
-                        print(f"Content: {message_content}")
-                        print("=============================================\n")
+                        logging.info("\n=============================================")
+                        logging.info("NEW MESSAGE RECEIVED FROM AZURE QUEUE:")
+                        logging.info(f"ID: {message.id}")
+                        logging.info(f"Blob name: {blob_name}")
+                        logging.info(f"Content: {message_content}")
+                        logging.info("=============================================\n")
                         
                         # Delete the message from the queue after processing
                         queue_client.delete_message(message.id, message.pop_receipt)
